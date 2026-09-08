@@ -1,0 +1,32 @@
+# --- OS / Editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# --- KiCad ---
+*.bak
+*-backups/
+_autosave-*
+fp-info-cache
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*.000
+*.lck
+*-cache.lib
+*.sch-bak
+
+# --- PlatformIO ---
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# --- ESP-IDF ---
+build/
+sdkconfig
+sdkconfig.old
+
+# --- STM32CubeIDE / CubeMX ---
+Debug/
+Release/
