@@ -1,0 +1,84 @@
+name: バグ報告
+description: ファームウェアやツール類の不具合を報告する
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        バグ報告ありがとうございます。以下の項目を可能な範囲で記入してください。
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 対象領域
+      description: 問題が発生している領域を選択してください
+      options:
+        - firmware
+        - hardware
+        - docs
+        - その他
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: 概要
+      description: どのような問題が発生していますか？
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 再現手順
+      description: 問題を再現するための手順を記載してください
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待する動作
+    validations:
+      required: false
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 実際の動作
+    validations:
+      required: false
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 環境情報
+      description: マイコンの型番、ファームウェアのバージョン/コミットハッシュ、ビルド環境など
+      placeholder: |
+        - 基板/マイコン:
+        - ファームウェアバージョン/コミット:
+        - ビルド環境:
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: ログ・スクリーンショット
+      description: 関連するログやエラーメッセージ、写真などがあれば添付してください
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: 補足情報
+    validations:
+      required: false

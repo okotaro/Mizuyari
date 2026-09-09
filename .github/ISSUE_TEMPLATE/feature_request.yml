@@ -1,0 +1,48 @@
+name: 機能要望
+description: 新機能や改善の提案
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: 対象領域
+      options:
+        - firmware
+        - hardware
+        - docs
+        - その他
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 背景・解決したい課題
+      description: どのような課題や不便さがありますか？
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 提案内容
+      description: 実現したい機能・仕様を具体的に記載してください
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 代替案
+      description: 検討した他の方法があれば記載してください
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: 補足情報
+    validations:
+      required: false

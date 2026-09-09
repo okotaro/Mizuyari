@@ -1,0 +1,59 @@
+name: ハードウェア（回路・基板）の問題
+description: KiCadの回路図・基板設計に関する不具合や修正提案を報告する
+title: "[Hardware] "
+labels:
+  - hardware
+body:
+  - type: markdown
+    attributes:
+      value: |
+        回路図・基板設計に関する問題の報告ありがとうございます。
+
+  - type: input
+    id: revision
+    attributes:
+      label: 対象基板/リビジョン
+      description: 該当する基板名やリビジョン、KiCadプロジェクトのパスなど
+      placeholder: 例) hardware/xxx-board rev.B
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: 問題の概要
+      description: 回路図・部品選定・基板レイアウトなど、何の問題ですか？
+    validations:
+      required: true
+
+  - type: textarea
+    id: reference
+    attributes:
+      label: 該当箇所
+      description: 該当するネットラベル、部品リファレンス（例: R1, U2）、シート名など
+    validations:
+      required: false
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: 影響範囲
+      description: 動作にどのような影響があるか（発振しない、電源が入らない、寸法が合わない等）
+    validations:
+      required: false
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 修正案
+      description: 対応方法の案があれば記載してください
+    validations:
+      required: false
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: 参考資料
+      description: 回路図/基板のスクリーンショット、データシート抜粋などがあれば添付してください
+    validations:
+      required: false
