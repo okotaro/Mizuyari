@@ -16,6 +16,10 @@ fp-info-cache
 *.lck
 *-cache.lib
 *.sch-bak
+# ユーザ固有の表示状態（ウィンドウ位置・表示レイヤ等）
+*.kicad_prl
+# 提出用アーカイブ（ガーバー等は展開済みのものを管理する）
+*.zip
 
 # --- PlatformIO ---
 .pio/
