@@ -21,6 +21,11 @@ fp-info-cache
 # 提出用アーカイブ（ガーバー等は展開済みのものを管理する）
 *.zip
 
+# --- 設計レビュー（kicad-happy）---
+# 解析結果とデータシート取得結果。設計データから再生成できるためコミットしない
+analysis/
+datasheets/
+
 # --- PlatformIO ---
 .pio/
 .pioenvs/
