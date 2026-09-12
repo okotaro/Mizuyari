@@ -4,7 +4,7 @@
     "service": "app",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
     "initializeCommand": "bash \"${localWorkspaceFolder}/.devcontainer/write-env.sh\" \"${localWorkspaceFolder}\"",
-    "postCreateCommand": "cc-sdd --claude-skills --lang ja",
+    "postCreateCommand": "bash \"${containerWorkspaceFolder}/.devcontainer/post-create.sh\"",
     "containerEnv": {
         "HTTP_PROXY": "${localEnv:HTTP_PROXY}",
         "HTTPS_PROXY": "${localEnv:HTTPS_PROXY}",
