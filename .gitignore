@@ -5,6 +5,10 @@ Thumbs.db
 .idea/
 *.swp
 
+# --- devcontainer ---
+# herdr-claude.sh が記録する、現行コンテナのビルド元設定のハッシュ
+.devcontainer/*/.config-hash
+
 # --- KiCad ---
 *.bak
 *-backups/
