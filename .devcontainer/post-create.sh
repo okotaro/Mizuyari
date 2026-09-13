@@ -14,9 +14,11 @@ set -eu
 cc-sdd --claude-skills --lang ja
 
 install_kicad_happy() {
-    # 既に登録済みなら add が失敗するので、その場合は update に切り替える
+    # 既に登録済みなら add が失敗するので、その場合は update に切り替える。
+    # 関数は `if !` の中で呼ばれ set -e が効かないため、明示的に return する。
     claude plugin marketplace add aklofas/kicad-happy \
-        || claude plugin marketplace update kicad-happy
+        || claude plugin marketplace update kicad-happy \
+        || return 1
     claude plugin install kicad-happy@kicad-happy --scope user --yes
 }
 
