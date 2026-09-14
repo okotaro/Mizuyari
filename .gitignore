@@ -5,6 +5,10 @@ Thumbs.db
 .idea/
 *.swp
 
+# --- devcontainer ---
+# herdr-claude.sh が記録する、現行コンテナのビルド元設定のハッシュ
+.devcontainer/*/.config-hash
+
 # --- KiCad ---
 *.bak
 *-backups/
@@ -20,6 +24,11 @@ fp-info-cache
 *.kicad_prl
 # 提出用アーカイブ（ガーバー等は展開済みのものを管理する）
 *.zip
+
+# --- 設計レビュー（kicad-happy）---
+# 解析結果とデータシート取得結果。設計データから再生成できるためコミットしない
+analysis/
+datasheets/
 
 # --- PlatformIO ---
 .pio/

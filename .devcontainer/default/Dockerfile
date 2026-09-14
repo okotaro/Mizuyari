@@ -17,6 +17,13 @@ RUN curl -fsSL https://github.com/cli/cli/releases/download/v2.67.0/gh_2.67.0_li
     && mv /tmp/gh_2.67.0_linux_amd64/bin/gh /usr/local/bin/ \
     && rm -rf /tmp/gh_*
 
+# Python をバイナリ直接配置（kicad-happy の解析スクリプトが Python 3.10+ を要求する）
+RUN curl -fsSL https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.12.14+20260901-x86_64-unknown-linux-gnu-install_only.tar.gz | tar -xz -C /opt \
+    && ln -sf /opt/python/bin/python3 /usr/local/bin/python3 \
+    && ln -sf /opt/python/bin/python3 /usr/local/bin/python \
+    && ln -sf /opt/python/bin/pip3 /usr/local/bin/pip3 \
+    && chown -R vscode:vscode /opt/python
+
 # Claude Code のインストール
 RUN npm install -g @anthropic-ai/claude-code
 

@@ -57,12 +57,33 @@
 ### 検証
 - 回路図変更後は ERC、基板変更後は DRC を通す
 - 製造データ（ガーバー・ドリル）は基板確定後にのみ再生成し、単発の編集のたびに更新しない
+- 発注前には AI による設計レビュー（下記「設計レビュー」）を一度通す
+
+## 設計レビュー
+
+回路図・基板の妥当性は、スクリーンショットを渡すのではなく
+**設計データそのもの**（`.kicad_sch` / `.kicad_pcb` / ガーバー）を
+Claude Code に読ませてレビューする。
+
+kicad-happy プラグイン（`aklofas/kicad-happy`, MIT）を導入しており、
+S-expression を直接パースして電源ツリー・ネット・受動素子の定数・
+デカップリング・コネクタ保護などを構造化データとして取り出す。
+KiCad 5〜10 のファイル形式に対応し、KiCad 本体の起動は不要。
+
+- **導入**: devcontainer の `postCreateCommand`（`.devcontainer/post-create.sh`）が自動で入れる。
+  marketplace の宣言は `.claude/settings.json`
+- **呼び出し方**: 対象を指定して依頼するだけでよい（例: 「`hardware/daiso-clock/` をレビューして」）
+- **出力**: 実行時のカレントディレクトリ直下の `analysis/` に残る。
+  設計データから再生成できるためコミットしない（`.gitignore` 済み）
+- **レビュー結果の扱い**: 指摘は根拠付きの候補であって結論ではない。
+  採用可否は回路図と部品データシートで裏を取ってから判断する
 
 ## 開発環境
 
 ### 必要なツール
 - KiCad 10.0 以降（eeschema / pcbnew / ngspice）
 - Git（バイナリではなく S-expression テキストとして差分を取る）
+- Python 3.10 以降（kicad-happy の解析スクリプトが使う。依存パッケージは不要）
 
 ### よく使う操作
 ```bash
@@ -71,6 +92,11 @@ kicad hardware/<project>/<project>.kicad_pro
 
 # 変更点の確認（KiCad ファイルはテキスト形式なので diff 可能）
 git diff -- hardware/
+```
+
+設計レビューは Claude Code に自然文で依頼する。
+```
+hardware/daiso-clock/ の回路図と基板をレビューして
 ```
 
 ## 主要な技術判断
